@@ -4,6 +4,11 @@
 #include "include/dart_api.h"
 #include "include/dart_native_api.h"
 
+int calcSum(int x, int y) 
+{
+  return x+y;
+}
+
 //
 // https://www.dartlang.org/articles/dart-vm/native-extensions
 //
@@ -47,7 +52,7 @@ void sum(Dart_NativeArguments arguments)
   }
 
   printf(">>>> x=%lld y=%lld\n", x, y);
-  Dart_SetReturnValue(arguments, Dart_NewInteger(x + y));
+  Dart_SetReturnValue(arguments, Dart_NewInteger(calcSum(x,y)));
   Dart_ExitScope();
 }
 
